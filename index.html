@@ -234,8 +234,21 @@
       transition: color 0.12s ease;
     }
 
+    .writing-title::after {
+      content: "→";
+      font-size: 0.85rem;
+      color: var(--gray-muted);
+      margin-left: 0.35rem;
+      transition: all 0.12s ease;
+    }
+
     .writing-title:hover {
       color: var(--gray);
+    }
+
+    .writing-title:hover::after {
+      color: var(--gray);
+      margin-left: 0.45rem;
     }
 
     .writing-desc {
