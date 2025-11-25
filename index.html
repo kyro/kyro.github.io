@@ -1,118 +1,459 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Kyro Beshay</title>
-  <meta name="description" content="About Me" />
-  <link href="https://kit.design/dist/main.0.0.1.css" rel="stylesheet" />
-  <link rel="icon" type="image/png" href="images/favicon.png">
-  <!-- <script async src='https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX'></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kyro Beshay — Product Builder & Physician</title>
+  <meta name="description" content="Product builder and physician focused on human agency. Co-founder of Zipdrug (acquired by Anthem), Product Director at Everlywell, investor.">
+  <meta name="author" content="Kyro Beshay">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://kyrobeshay.com/">
+  
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Kyro Beshay — Product Builder & Physician">
+  <meta property="og:description" content="Product builder and physician focused on human agency. Co-founder of Zipdrug (acquired by Anthem), Product Director at Everlywell, investor.">
+  <meta property="og:url" content="https://kyrobeshay.com/">
+  <meta property="og:site_name" content="Kyro Beshay">
+  <meta property="og:locale" content="en_US">
+  
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:site" content="@kyro">
+  <meta name="twitter:creator" content="@kyro">
+  <meta name="twitter:title" content="Kyro Beshay — Product Builder & Physician">
+  <meta name="twitter:description" content="Product builder and physician focused on human agency. Co-founder of Zipdrug (acquired by Anthem), Product Director at Everlywell, investor.">
 
-    gtag('config', 'G-XXXXXXXXXX');
-  </script> -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;450;500;550;600&display=swap" rel="stylesheet">
+  
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Kyro Beshay",
+    "url": "https://kyrobeshay.com",
+    "jobTitle": "Product Director",
+    "worksFor": {
+      "@type": "Organization",
+      "name": "Everlywell"
+    },
+    "sameAs": [
+      "https://twitter.com/kyro",
+      "https://www.linkedin.com/in/kyrobeshay/"
+    ],
+    "description": "Product builder and physician focused on human agency."
+  }
+  </script>
+
   <style>
-      a {
-        color: inherit;
+    :root {
+      --black: #111;
+      --gray-dark: #222;
+      --gray: #555;
+      --gray-light: #777;
+      --gray-muted: #999;
+      --gray-rule: #e5e5e5;
+      --white: #fafafa;
+      --font: 'Inter', -apple-system, system-ui, sans-serif;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      font-size: 15px;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    body {
+      font-family: var(--font);
+      background: var(--white);
+      color: var(--black);
+      line-height: 1.4;
+      min-height: 100vh;
+    }
+
+    /* Two-Column Grid */
+    .page {
+      display: grid;
+      grid-template-columns: 220px 1fr;
+      gap: 4.5rem;
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 5rem 2.5rem 5rem;
+      min-height: 100vh;
+    }
+
+    /* Sidebar */
+    .sidebar {
+      position: sticky;
+      top: 5rem;
+      height: fit-content;
+    }
+
+    .name {
+      font-size: 1.4rem;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      line-height: 1.15;
+      margin-bottom: 0.6rem;
+    }
+
+    .tagline {
+      font-size: 0.9rem;
+      color: var(--gray);
+      font-weight: 400;
+      line-height: 1.35;
+    }
+
+    /* Content */
+    .content {
+      padding-top: 0.1rem;
+    }
+
+    section {
+      margin-bottom: 3.5rem;
+    }
+
+    section:last-of-type {
+      margin-bottom: 0;
+    }
+
+    .section-heading {
+      font-size: 0.7rem;
+      font-weight: 550;
+      color: var(--gray-muted);
+      letter-spacing: 0.01em;
+      margin-bottom: 1.1rem;
+    }
+
+    /* About */
+    .about-text {
+      font-size: 0.95rem;
+      line-height: 1.55;
+      color: var(--gray-dark);
+      font-weight: 400;
+    }
+
+    .about-text p {
+      margin-bottom: 0.85rem;
+    }
+
+    .about-text p:last-child {
+      margin-bottom: 0;
+    }
+
+    /* Work */
+    .work-list {
+      list-style: none;
+      border-top: 1px solid var(--gray-rule);
+    }
+
+    .work-item {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 1rem;
+      padding: 0.85rem 0;
+      border-bottom: 1px solid var(--gray-rule);
+      align-items: baseline;
+    }
+
+    .work-content {
+      display: flex;
+      flex-direction: column;
+      gap: 0.1rem;
+    }
+
+    .work-role {
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: var(--black);
+      letter-spacing: -0.005em;
+    }
+
+    .work-company {
+      font-size: 0.85rem;
+      color: var(--gray);
+      font-weight: 400;
+    }
+
+    .work-meta {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.8rem;
+    }
+
+    .work-year {
+      color: var(--gray-light);
+      font-variant-numeric: tabular-nums;
+    }
+
+    .work-tag {
+      font-size: 0.65rem;
+      font-weight: 550;
+      color: var(--gray);
+      background: #eaeaea;
+      padding: 0.15rem 0.4rem;
+      border-radius: 2px;
+    }
+
+    /* Writing */
+    .writing-list {
+      border-top: 1px solid var(--gray-rule);
+    }
+
+    .writing-item {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 1rem;
+      align-items: baseline;
+      padding: 0.85rem 0;
+      border-bottom: 1px solid var(--gray-rule);
+    }
+
+    .writing-content {
+      display: flex;
+      flex-direction: column;
+      gap: 0.1rem;
+    }
+
+    .writing-title {
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: var(--black);
+      letter-spacing: -0.005em;
+      text-decoration: none;
+      transition: color 0.12s ease;
+    }
+
+    .writing-title:hover {
+      color: var(--gray);
+    }
+
+    .writing-desc {
+      font-size: 0.8rem;
+      color: var(--gray);
+      font-weight: 400;
+    }
+
+    .writing-year {
+      font-size: 0.8rem;
+      color: var(--gray-light);
+    }
+
+    /* Footer */
+    footer {
+      margin-top: 4rem;
+      padding-top: 1.25rem;
+      border-top: 1px solid var(--gray-rule);
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 1rem;
+    }
+
+    .footer-links a {
+      font-size: 0.75rem;
+      color: var(--gray-light);
+      text-decoration: none;
+      transition: color 0.12s ease;
+    }
+
+    .footer-links a:hover {
+      color: var(--black);
+    }
+
+    /* Mobile */
+    @media (max-width: 720px) {
+      html {
+        font-size: 15px;
       }
-      a:hover {
-        text-decoration: underline;
+
+      .page {
+        grid-template-columns: 1fr;
+        gap: 0;
+        padding: 0;
+        min-height: auto;
       }
+
+      .sidebar {
+        position: relative;
+        top: 0;
+        padding: 2.5rem 1.5rem 2rem;
+        border-bottom: 1px solid var(--gray-rule);
+      }
+
+      .name {
+        font-size: 1.35rem;
+        margin-bottom: 0.5rem;
+      }
+
+      .tagline {
+        font-size: 0.9rem;
+      }
+
+      .content {
+        padding: 2rem 1.5rem 3rem;
+      }
+
+      section {
+        margin-bottom: 2.5rem;
+      }
+
+      .section-heading {
+        margin-bottom: 1rem;
+      }
+
+      .about-text {
+        font-size: 0.95rem;
+        line-height: 1.6;
+      }
+
+      .about-text p {
+        margin-bottom: 0.9rem;
+      }
+
+      .work-item {
+        grid-template-columns: 1fr;
+        gap: 0.25rem;
+        padding: 0.9rem 0;
+      }
+
+      .work-meta {
+        margin-top: 0.15rem;
+      }
+
+      .writing-item {
+        grid-template-columns: 1fr;
+        gap: 0.25rem;
+        padding: 0.9rem 0;
+      }
+
+      .writing-year {
+        margin-top: 0.15rem;
+      }
+
+      footer {
+        margin-top: 2.5rem;
+        padding-top: 1.5rem;
+      }
+
+      .footer-links {
+        gap: 1.25rem;
+      }
+
+      .footer-links a {
+        font-size: 0.8rem;
+        padding: 0.25rem 0;
+      }
+    }
+
+    /* Small mobile */
+    @media (max-width: 380px) {
+      .sidebar {
+        padding: 2rem 1.25rem 1.75rem;
+      }
+
+      .content {
+        padding: 1.75rem 1.25rem 2.5rem;
+      }
+
+      .name {
+        font-size: 1.25rem;
+      }
+    }
   </style>
 </head>
-<body padding>
-  <vstack alignment="leading">
-    <vstack alignment="leading" padding>
-      <text font="headline">
-        kyro beshay
-      </text>
-    </vstack>
-    <divider></divider>
-    <text font="title2" style="max-width: 600px;" padding>
-      I'm Kyro (kērō), product builder & founder who cares deeply about maximizing
-      human connection, wellness, and agency. Previously, I was Co-Founder at Zipdrug, a
-      venture-backed digital health platform acquired by Elevance Health ($ELV).
-    </text>
-    <divider></divider>
-    <vstack alignment="leading" padding>
-      <text font="headline">work</text>
-      <hstack>
-        <text>
-          Product Strategy, kxyz
-          <text foreground="gray">(2021 - Now)</text>
-        </text>
-      </hstack>
-      <hstack>
-        <text>
-          Product & Design,
-          <a href="https://drive.google.com/file/d/1n2YF90hG5YnWu0WkzmetNUlcUz4T2soh/view" target=”_blank”>Wim</a>
-          <text foreground="gray">(2019 - 2020)</text>
-        </text>
-      </hstack>
-      <vstack alignment="leading">
-        <hstack>
-          <text>
-            Co-Founder,
-            <a href="https://www.zipdrug.com" target=”_blank”>Zipdrug</a>
-            <text foreground="gray">(2014 - 2019)</text>
-            <text font="subheadline" foreground="blue">Acquired</text>
-          </text>
-        </hstack>
-      </vstack>
-    </vstack>
-    <divider background="gray5"></divider>
-    <vstack alignment="leading" padding>
-      <text font="headline">investments</text>
-      <hstack>
-        <text>
-          <a href="https://www.rainbow.me" target=”_blank”>Rainbow</a>
-        </text>
-      </hstack>
-      <hstack>
-        <text>
-          <a href="https://www.qawolf.com" target=”_blank”>QA Wolf</a>
-        </text>
-      </hstack>
-      <hstack>
-        <text foreground="gray">Stealth</text>
-      </hstack>
-    </vstack>
-    <divider background="gray5"></divider>
-    <vstack alignment="leading" padding>
-      <text font="headline">causes</text>
-      <hstack>
-        <text>
-          <a href="https://copticorphans.org" target=”_blank”>Coptic Orphans</a>
-        </text>
-      </hstack>
-      <hstack>
-        <text>
-          <a href="https://www.soupangels.com" target=”_blank”>Soup Angels</a>
-        </text>
-      </hstack>
-    </vstack>
-    <divider background="gray5"></divider>
-    <vstack alignment="leading" padding>
-      <text font="headline">education</text>
-      <text>MD, St. George's University</text>
-      <text>BSc, University of California Irvine</text>
-    </vstack>
-    <divider background="gray5"></divider>
-    <vstack alignment="leading" padding>
-      <text font="headline">links</text>
-      <text><a href="https://twitter.com/kyro" target=”_blank”>Twitter</a></text>
-      <text><a href="https://www.linkedin.com/in/kyrobeshay/" target=”_blank”>LinkedIn</a></text>
-      <text><a href="https://www.instagram.com/kyrobeshay/" target=”_blank”>Instagram</a></text>
-      <text><a href="mailto:kyro@kyrobeshay.com">kyro@kyrobeshay.com</a></text>
-    </vstack>
-    <text font="caption1" foreground="gray" padding>
-        Built with
-        <a href="https://www.kit.design" target=”_blank” foreground="black">DesignKit</a>
-    </text>
-  </vstack>
+<body>
+  <main class="page">
+    <aside class="sidebar">
+      <h1 class="name">Kyro Beshay</h1>
+      <p class="tagline">Building for human agency</p>
+    </aside>
+
+    <div class="content">
+      <section>
+        <h2 class="section-heading">About</h2>
+        <div class="about-text">
+          <p>I'm a product builder and physician who believes technology should expand what people can do, not constrain it. My work sits at the intersection of healthcare, consumer technology, and experience design—always oriented toward restoring agency.</p>
+          <p>I co-founded Zipdrug, a pharmacy delivery platform acquired by Anthem. Now I lead product strategy at Everlywell and advise early-stage companies through kxyz. I've invested in teams building tools that trust their users, including Rainbow and QA Wolf.</p>
+          <p>I'm currently writing about embodiment, technology, and the conditions under which people flourish.</p>
+        </div>
+      </section>
+
+      <section>
+        <h2 class="section-heading">Work</h2>
+        <ul class="work-list">
+          <li class="work-item">
+            <div class="work-content">
+              <span class="work-role">Product Director, Consumer & Diagnostics</span>
+              <span class="work-company">Everlywell</span>
+            </div>
+            <span class="work-meta">
+              <span class="work-year">2025–</span>
+            </span>
+          </li>
+          <li class="work-item">
+            <div class="work-content">
+              <span class="work-role">Chief Product Officer & Advisor</span>
+              <span class="work-company">kxyz</span>
+            </div>
+            <span class="work-meta">
+              <span class="work-year">2021–</span>
+            </span>
+          </li>
+          <li class="work-item">
+            <div class="work-content">
+              <span class="work-role">Head of Digital Product, Founding Team</span>
+              <span class="work-company">Wim</span>
+            </div>
+            <span class="work-meta">
+              <span class="work-year">2019–20</span>
+            </span>
+          </li>
+          <li class="work-item">
+            <div class="work-content">
+              <span class="work-role">Co-Founder & Chief Product Officer</span>
+              <span class="work-company">Zipdrug</span>
+            </div>
+            <span class="work-meta">
+              <span class="work-year">2014–19</span>
+              <span class="work-tag">Acquired</span>
+            </span>
+          </li>
+        </ul>
+      </section>
+
+      <section>
+        <h2 class="section-heading">Essays</h2>
+        <div class="writing-list">
+          <div class="writing-item">
+            <div class="writing-content">
+              <p><a href="/the-embodied-gradient.html" class="writing-title">The Embodied Gradient</a></p>
+              <p class="writing-desc">A Design Specification for Human Agency</p>
+            </div>
+            <span class="writing-year">2025</span>
+          </div>
+        </div>
+      </section>
+
+      <footer>
+        <nav class="footer-links">
+          <a href="https://twitter.com/kyro" target="_blank" rel="noopener">@kyro</a>
+          <a href="https://www.linkedin.com/in/kyrobeshay/" target="_blank" rel="noopener">LinkedIn</a>
+          <a href="mailto:kyro@kyrobeshay.com">Email</a>
+        </nav>
+      </footer>
+    </div>
+  </main>
 </body>
 </html>
