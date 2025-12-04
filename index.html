@@ -418,7 +418,7 @@
         <h2 class="section-heading">About</h2>
         <div class="about-text">
           <p>Product leader working toward humane technology.</p>
-          <p>Trained as a physician, then moved into building, I co-founded Zipdrug where we reimagined pharmacy access around the patient - delivery, adherence, and care coordination meeting people where they actually were. The company was acquired by Elevance Health. Now at Everlywell, I lead product to design systems that put diagnostic insights directly in people's hands.</p>
+          <p>Trained as a physician, then moved into building, I co-founded Zipdrug where we reimagined pharmacy access around the patient - delivery, adherence, and care coordination meeting people where they actually were. The company was acquired by Elevance Health. Now at Everlywell, I lead product to design systems that put diagnostic insights directly into people's hands.</p>
           <p>Current interests: affective AI, "dumb" tech, diagnostics, and experiential modes of therapy.</p>
         </div>
       </section>
@@ -444,7 +444,7 @@
         <ul class="work-list">
           <li class="work-item">
             <div class="work-content">
-              <span class="work-role">Product Director - Consumer, Enterprise, Diagnostics</span>
+              <span class="work-role">Product Director</span>
               <span class="work-company">Everlywell</span>
             </div>
             <span class="work-meta">
@@ -569,35 +569,34 @@
     if (isTouchDevice) {
       toggleBtn = document.createElement('button');
       toggleBtn.innerHTML = `
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M3 17c3.333-3.333 5-6.667 8-8c1.5-0.667 3 1 2 3c-2 4-5 7-8 10"/>
-          <path d="M12.5 9.5c2-2 4.5-3 6-1.5s0.5 4-1.5 6"/>
-          <path d="M9 14c-1.333 1.333-2.667 2.667-3 4"/>
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M3 17 Q8 12 12 14 Q16 16 21 7"/>
         </svg>
         <span>Draw</span>
       `;
       toggleBtn.setAttribute('aria-label', 'Toggle draw mode');
       toggleBtn.style.cssText = `
         position: fixed;
-        bottom: 24px;
-        right: 24px;
-        height: 36px;
-        padding: 0 14px;
-        border-radius: 18px;
-        border: 1px solid var(--gray-rule);
-        background: var(--white);
-        color: var(--gray);
-        font-family: var(--font);
-        font-size: 0.75rem;
+        bottom: 20px;
+        right: 20px;
+        height: 32px;
+        padding: 0 12px;
+        border-radius: 6px;
+        border: 1px solid #e5e5e5;
+        background: #fafafa;
+        color: #555;
+        font-family: 'Inter', -apple-system, system-ui, sans-serif;
+        font-size: 0.8rem;
         font-weight: 500;
+        letter-spacing: -0.01em;
         cursor: pointer;
         z-index: 10000;
         display: flex;
         align-items: center;
         gap: 6px;
-        transition: all 0.2s ease;
+        transition: all 0.15s ease;
         -webkit-tap-highlight-color: transparent;
-        box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        box-shadow: 0 1px 3px rgba(0,0,0,0.08);
       `;
       document.body.appendChild(toggleBtn);
       
@@ -612,9 +611,9 @@
           toggleBtn.querySelector('span').textContent = 'Done';
         } else {
           document.body.classList.remove('draw-mode');
-          toggleBtn.style.background = 'var(--white)';
-          toggleBtn.style.color = 'var(--gray)';
-          toggleBtn.style.borderColor = 'var(--gray-rule)';
+          toggleBtn.style.background = '#fafafa';
+          toggleBtn.style.color = '#555';
+          toggleBtn.style.borderColor = '#e5e5e5';
           toggleBtn.querySelector('span').textContent = 'Draw';
         }
       });
