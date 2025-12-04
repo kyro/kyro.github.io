@@ -79,6 +79,11 @@
       line-height: 1.4;
       min-height: 100vh;
     }
+    
+    body.draw-mode {
+      overflow: hidden;
+      touch-action: none;
+    }
 
     /* Two-Column Grid */
     .page {
@@ -271,8 +276,8 @@
     .writing-tag {
       font-size: 0.65rem;
       font-weight: 550;
-      color: #1e40af;
-      background: #dbeafe;
+      color: #b45309;
+      background: #fef7ed;
       padding: 0.15rem 0.4rem;
       border-radius: 2px;
     }
@@ -413,7 +418,7 @@
         <h2 class="section-heading">About</h2>
         <div class="about-text">
           <p>Product leader working toward humane technology.</p>
-          <p>Trained as a physician, then moved into building, I co-founded Zipdrug where we reimagined pharmacy access around the patient - delivery, adherence, and care coordination meeting people where they actually were. The company was acquired by Elevance Health. Now at Everlywell, I lead product for consumer and diagnostics, designing systems that put health insights directly in people's hands at the moment it can inform action.</p>
+          <p>Trained as a physician, then moved into building, I co-founded Zipdrug where we reimagined pharmacy access around the patient - delivery, adherence, and care coordination meeting people where they actually were. The company was acquired by Elevance Health. Now at Everlywell, I lead product across experience, clinical, intelligence, and delivery to design systems that put diagnostic insights directly in people's hands.</p>
           <p>Current interests: affective AI, "dumb" tech, diagnostics, and experiential modes of therapy.</p>
         </div>
       </section>
@@ -488,7 +493,7 @@
   </main>
 
   <script>
-    const crayonColor = '#1e40af';
+    const crayonColor = '#00b4d8';
     const drawCanvas = document.createElement('canvas');
     drawCanvas.style.cssText = 'position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:9998;';
     document.body.appendChild(drawCanvas);
@@ -513,21 +518,21 @@
     cursorEl.innerHTML = `<svg width="60" height="60" viewBox="0 0 60 60">
       <defs>
         <linearGradient id="waxBody" x1="0%" y1="0%" x2="100%" y2="0%">
-          <stop offset="0%" stop-color="#1a3a8f"/>
-          <stop offset="15%" stop-color="#1e40af"/>
-          <stop offset="50%" stop-color="#2850c0"/>
-          <stop offset="85%" stop-color="#1e40af"/>
-          <stop offset="100%" stop-color="#162d7a"/>
+          <stop offset="0%" stop-color="#0090ab"/>
+          <stop offset="15%" stop-color="#00b4d8"/>
+          <stop offset="50%" stop-color="#2cc5e8"/>
+          <stop offset="85%" stop-color="#00b4d8"/>
+          <stop offset="100%" stop-color="#0090ab"/>
         </linearGradient>
         <linearGradient id="brokenEdge" x1="0%" y1="100%" x2="0%" y2="0%">
-          <stop offset="0%" stop-color="#1e40af"/>
-          <stop offset="50%" stop-color="#4a6fd0"/>
-          <stop offset="100%" stop-color="#7a9de8"/>
+          <stop offset="0%" stop-color="#00b4d8"/>
+          <stop offset="50%" stop-color="#48d1ec"/>
+          <stop offset="100%" stop-color="#90e4f7"/>
         </linearGradient>
         <radialGradient id="wornTip" cx="50%" cy="30%" r="70%">
-          <stop offset="0%" stop-color="#2850c0"/>
-          <stop offset="60%" stop-color="#1e40af"/>
-          <stop offset="100%" stop-color="#152d75"/>
+          <stop offset="0%" stop-color="#2cc5e8"/>
+          <stop offset="60%" stop-color="#00b4d8"/>
+          <stop offset="100%" stop-color="#0090ab"/>
         </radialGradient>
         <linearGradient id="paper" x1="0%" y1="0%" x2="100%" y2="0%">
           <stop offset="0%" stop-color="#c9b896"/>
@@ -543,62 +548,74 @@
       <g transform="translate(30,30) rotate(-45) translate(-18,-30)" filter="url(#shadow)">
         <path d="M8 16 L8 44 Q8 46 10 46 L26 46 Q28 46 28 44 L28 16 Z" fill="url(#waxBody)"/>
         <path d="M8 16 L8 10 Q9 13 11 9 Q12 14 14 8 Q16 15 18 7 Q20 14 22 10 Q24 15 26 11 Q27 14 28 12 L28 16 Z" fill="url(#brokenEdge)"/>
-        <path d="M10 12 Q11 10 12 13" stroke="#8aade8" stroke-width="0.4" fill="none" opacity="0.6"/>
-        <path d="M15 9 Q16 12 17 10" stroke="#7a9de8" stroke-width="0.4" fill="none" opacity="0.5"/>
-        <path d="M21 11 Q22 8 23 12" stroke="#8aade8" stroke-width="0.4" fill="none" opacity="0.6"/>
+        <path d="M10 12 Q11 10 12 13" stroke="#90e4f7" stroke-width="0.4" fill="none" opacity="0.6"/>
+        <path d="M15 9 Q16 12 17 10" stroke="#90e4f7" stroke-width="0.4" fill="none" opacity="0.5"/>
+        <path d="M21 11 Q22 8 23 12" stroke="#90e4f7" stroke-width="0.4" fill="none" opacity="0.6"/>
         <rect x="8" y="22" width="20" height="18" fill="url(#paper)"/>
         <rect x="8" y="24" width="20" height="2.5" fill="#1a1a1a"/>
         <rect x="8" y="28" width="20" height="2.5" fill="#1a1a1a"/>
         <line x1="8" y1="22" x2="28" y2="22" stroke="#a89870" stroke-width="0.5"/>
         <line x1="8" y1="40" x2="28" y2="40" stroke="#a89870" stroke-width="0.5"/>
         <path d="M8 46 L15 57 Q18 63 21 57 L28 46 Z" fill="url(#wornTip)"/>
-        <line x1="12" y1="48" x2="16.5" y2="55" stroke="#152d75" stroke-width="0.4" opacity="0.15"/>
-        <line x1="24" y1="48" x2="19.5" y2="55" stroke="#152d75" stroke-width="0.4" opacity="0.15"/>
+        <line x1="12" y1="48" x2="16.5" y2="55" stroke="#0090ab" stroke-width="0.4" opacity="0.15"/>
+        <line x1="24" y1="48" x2="19.5" y2="55" stroke="#0090ab" stroke-width="0.4" opacity="0.15"/>
       </g>
     </svg>`;
     cursorEl.style.cssText = 'position:fixed;pointer-events:none;z-index:9999;transform:translate(-53px,-53px);display:none;';
     document.body.appendChild(cursorEl);
     
     // Mobile draw mode toggle (touch devices only)
+    let toggleBtn = null;
     if (isTouchDevice) {
-      const toggleBtn = document.createElement('button');
-      toggleBtn.innerHTML = `<svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-        <path d="M4 20 L7 17 L17 7 C18 6 19.5 6 20.5 7 C21.5 8 21.5 9.5 20.5 10.5 L10.5 20.5 L4 20 Z" 
-              fill="currentColor" opacity="0.9"/>
-        <path d="M14 10 L17 7" stroke="white" stroke-width="1" stroke-linecap="round" opacity="0.4"/>
-      </svg>`;
+      toggleBtn = document.createElement('button');
+      toggleBtn.innerHTML = `
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M3 17c3.333-3.333 5-6.667 8-8c1.5-0.667 3 1 2 3c-2 4-5 7-8 10"/>
+          <path d="M12.5 9.5c2-2 4.5-3 6-1.5s0.5 4-1.5 6"/>
+          <path d="M9 14c-1.333 1.333-2.667 2.667-3 4"/>
+        </svg>
+        <span>Draw</span>
+      `;
       toggleBtn.setAttribute('aria-label', 'Toggle draw mode');
       toggleBtn.style.cssText = `
         position: fixed;
         bottom: 24px;
         right: 24px;
-        width: 44px;
-        height: 44px;
-        border-radius: 50%;
-        border: none;
-        background: transparent;
-        color: #1e40af;
-        opacity: 0.35;
+        height: 36px;
+        padding: 0 14px;
+        border-radius: 18px;
+        border: 1px solid var(--gray-rule);
+        background: var(--white);
+        color: var(--gray);
+        font-family: var(--font);
+        font-size: 0.75rem;
+        font-weight: 500;
         cursor: pointer;
         z-index: 10000;
         display: flex;
         align-items: center;
-        justify-content: center;
-        transition: all 0.25s ease;
+        gap: 6px;
+        transition: all 0.2s ease;
         -webkit-tap-highlight-color: transparent;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.08);
       `;
       document.body.appendChild(toggleBtn);
       
-      toggleBtn.addEventListener('click', () => {
+      toggleBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
         drawModeEnabled = !drawModeEnabled;
         if (drawModeEnabled) {
-          toggleBtn.style.opacity = '1';
-          toggleBtn.style.background = 'rgba(30, 64, 175, 0.1)';
-          toggleBtn.style.transform = 'scale(1.05)';
+          document.body.classList.add('draw-mode');
+          toggleBtn.style.background = '#00b4d8';
+          toggleBtn.style.color = '#fff';
+          toggleBtn.style.borderColor = '#00b4d8';
+          toggleBtn.querySelector('span').textContent = 'Done';
         } else {
-          toggleBtn.style.opacity = '0.35';
-          toggleBtn.style.background = 'transparent';
-          toggleBtn.style.transform = 'scale(1)';
+          document.body.classList.remove('draw-mode');
+          toggleBtn.style.background = 'var(--white)';
+          toggleBtn.style.color = 'var(--gray)';
+          toggleBtn.style.borderColor = 'var(--gray-rule)';
+          toggleBtn.querySelector('span').textContent = 'Draw';
         }
       });
     }
@@ -692,7 +709,8 @@
     // Touch events for mobile drawing
     document.addEventListener('touchstart', (e) => {
       if (!drawModeEnabled) return;
-      if (isInteractive(e.target) || isOverText(e.target)) return;
+      // Allow button interaction
+      if (e.target.closest('button')) return;
       e.preventDefault();
       isDrawing = true;
       const touch = e.touches[0];
